@@ -32,7 +32,7 @@ def custom_http_exception_handler(request: Request, exc: HTTPException):
             "data": None,
             "error": getattr(exc, "error_type", "Bad Request" if exc.status_code == 400 else "Not Found"),
             "message": exc.detail,
-            "timestamp": datetime.time().isoformat(),
+            "timestamp": datetime.now().isoformat(),
             "path": request.url.path
         }
     )
